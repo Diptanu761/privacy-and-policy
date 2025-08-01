@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foxisync Extension Privacy Policy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            color: #333;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #0056b3;
+            margin-top: 20px;
+            margin-bottom: 10px;
+        }
+        h1 {
+            font-size: 2em;
+            text-align: center;
+        }
+        h2 {
+            font-size: 1.5em;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        p {
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+        ul li {
+            margin-bottom: 5px;
+        }
+        strong {
+            font-weight: bold;
+        }
+        em {
+            font-style: italic;
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h1>Privacy Policy for Foxisync Extension</h1>
+    <p><strong>Last Updated:</strong> August 2, 2025</p>
+
+    <p>This Privacy Policy describes how the Foxisync Chrome Extension ("the Extension") operates regarding your data. Foxisync is designed to enhance your web browsing experience through custom sound effects and visual themes.</p>
+
+    <h2>1. Data Collection</h2>
+    <p>Foxisync is committed to your privacy. The Extension <strong>does NOT collect, store, or transmit any of the following types of user data:</strong></p>
+    <ul>
+        <li><strong>Personally Identifiable Information (PII):</strong> We do not collect your name, email address, physical address, phone number, age, date of birth, or any other information that could directly identify you.</li>
+        <li><strong>Health Information:</strong> We do not collect any data related to your health, medical history, symptoms, diagnoses, or procedures.</li>
+        <li><strong>Financial and Payment Information:</strong> We do not collect any data related to your financial transactions, credit card numbers, bank account details, credit ratings, or payment history. Foxisync is a free extension and does not process payments.</li>
+        <li><strong>Authentication Information:</strong> We do not collect passwords, credentials, security questions, or personal identification numbers (PINs). Foxisync does not require any user accounts or logins.</li>
+        <li><strong>Personal Communications:</strong> We do not access or collect the content of your emails, texts, chat messages, or any other personal communications.</li>
+        <li><strong>Location Information:</strong> We do not collect data about your geographical region, IP address, GPS coordinates, or any other information about your physical location.</li>
+        <li><strong>Web History:</strong> We do not collect, store, or transmit a persistent list of web pages you have visited, nor associated data such as page titles or timestamps. Our interaction with tabs is ephemeral and solely for the purpose of triggering immediate sound effects or theme synchronization.</li>
+        <li><strong>User Activity (Logged):</strong> While the Extension responds to user actions like clicks, mouse movements, scrolls, and keystrokes to trigger sound effects, it does NOT collect, monitor, or log these activities for storage or transmission. These events are processed in real-time to provide auditory feedback only.</li>
+        <li><strong>Website Content:</strong> We do not collect or transmit the text, images, sounds, videos, or hyperlinks from the content of the websites you visit. Our content scripts interact with the Document Object Model (DOM) to detect user actions for sound effects but do not extract or store the actual content of the page.</li>
+    </ul>
+
+    <h2>2. Local Storage Usage</h2>
+    <p>Foxisync utilizes your browser's local storage (<code>chrome.storage.local</code>) exclusively to save your personal preferences and the Extension's operational state. This data is stored directly on your local device and is NOT accessed, shared, or transmitted by us to any external servers or third parties. The data stored includes:</p>
+    <ul>
+        <li><strong>Volume Settings:</strong> Your customized volume levels for various sound effects (e.g., general volume, tab open, tab close, click, scroll).</li>
+        <li><strong>Selected Theme:</strong> Your chosen visual and audio theme to ensure it loads automatically when you open a new tab or restart your browser.</li>
+        <li><strong>Sound Paths Configuration:</strong> The specific file paths for sound effects associated with your active theme.</li>
+        <li><strong>Music Playback State:</strong> Whether the background music on your new tab page is currently playing or paused.</li>
+    </ul>
+    <p>This local data retention is solely for the purpose of providing a consistent and personalized user experience.</p>
+
+    <h2>3. Permissions Used and Justification</h2>
+    <p>Foxisync requests only the minimum necessary permissions required to deliver its advertised features. Each permission is used strictly for the purposes described below:</p>
+    <ul>
+        <li><strong><code>tabs</code></strong>: This permission is essential for detecting and responding to browser tab events (e.g., <code>chrome.tabs.onCreated</code>, <code>chrome.tabs.onRemoved</code>, <code>chrome.tabs.onMoved</code>, <code>chrome.tabs.onUpdated</code> for mute/unmute status). It allows the Extension to play corresponding sound effects for these actions and to query/send messages to existing tabs for theme synchronization. No sensitive tab content or browsing history is accessed or stored.</li>
+        <li><strong><code>downloads</code></strong>: Used to listen for <code>chrome.downloads.onCreated</code> and <code>chrome.downloads.onChanged</code> events. This enables the Extension to play distinct sound effects when a download starts, completes, or is interrupted. No download content or personal download history is accessed or modified.</li>
+        <li><strong><code>bookmarks</code></strong>: Utilized to listen for <code>chrome.bookmarks.onCreated</code> events. This allows the Extension to play a specific sound effect when a new bookmark is successfully added by the user. No existing bookmark data is accessed, modified, or stored.</li>
+        <li><strong><code>offscreen</code></strong>: This permission is crucial for enabling continuous background audio playback in Manifest V3. It allows the Extension to create a small, invisible <code>offscreen.html</code> document. This document hosts an audio element that plays a silent, looping sound, ensuring the offscreen context remains active and can reliably play sound effects triggered by the service worker. No user data is processed or stored by the offscreen document.</li>
+        <li><strong><code>storage</code></strong>: As detailed in Section 2, this permission is used exclusively for saving and retrieving user preferences (volume settings, selected theme, sound paths, music state) locally on the user's device.</li>
+        <li><strong><code>scripting</code></strong>: This permission is used with <code>chrome.scripting.executeScript</code> to dynamically inject <code>content.js</code> into web pages (<code>http://*/*</code>, <code>https://*/*</code>). This is necessary for <code>content.js</code> to detect in-page user interactions (like clicks and scrolls) and trigger associated sound effects. Content scripts run in an isolated world, preventing interference with the web page and limiting data access to event detection for sound purposes.</li>
+        <li><strong><code>host_permissions</code> (<all_urls>)</strong>: This broad permission is required to allow <code>scripting</code> to inject <code>content.js</code> into <em>any</em> standard web page for universal in-page sound effects. It also enables <code>chrome.tabs.query</code> and <code>chrome.tabs.sendMessage</code> to reach all active tabs for theme synchronization. This permission does NOT grant access to sensitive user data or browsing history; its use is strictly confined to the functionalities described.</li>
+    </ul>
+
+    <h2>4. Third-Party Services</h2>
+    <p>Foxisync utilizes publicly available Content Delivery Networks (CDNs) for certain styling and icon libraries (e.g., Google Fonts, Boxicons). These CDNs are used solely for loading static assets (fonts, icons) and do not involve the collection or transmission of user data by Foxisync. The Tailwind CSS library is included locally within the extension package.</p>
+
+    <h2>5. Changes to This Privacy Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or for other operational, legal, or regulatory reasons. We will notify you of any changes by posting the new Privacy Policy on this page. You are advised to review this Privacy Policy periodically for any changes.</p>
+
+    <h2>6. Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy or Foxisync's data practices, please contact us at:</p>
+    <p>diptanusaha54@gmail.com</p>
+
+</body>
+</html>
